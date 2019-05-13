@@ -37,8 +37,8 @@ gradlePlugin {
 }
 
 pluginBundle {
-    website = '<substitute your project website>'
-    vcsUrl = '<uri to project source repository>'
+    website = 'https://github.com/rozaydin/migrateplugin'
+    vcsUrl = 'https://github.com/rozaydin/migrateplugin'
     tags = ['jks', 'pkcs12', 'java', 'keystore']
 }
 
