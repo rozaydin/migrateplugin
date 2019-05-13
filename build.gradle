@@ -31,6 +31,8 @@ gradlePlugin {
     plugins {
         migrate {
             id = 'org.rozaydin.migrate'
+            displayName = 'Migrate Plugin'
+            description = 'Migrates JKS file(s) to PKCS12 format'
             implementationClass = 'com.rozaydin.migrateplugin.MigratePlugin'
         }
     }
