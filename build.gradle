@@ -1,0 +1,54 @@
+plugins {
+    id 'maven-publish'
+    id 'java-gradle-plugin'
+}
+
+group 'com.rozaydin.migrateplugin'
+version '0.1'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.6'
+    compileOnly "org.projectlombok:lombok:1.18.6"
+
+    compile gradleApi()
+    compile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.60'
+    compile group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.60'
+
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.8.0-beta4'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
+    testCompile "org.testng:testng:6.11"
+}
+
+gradlePlugin {
+    plugins {
+        migrate {
+            id = 'org.rozaydin.migrate'
+            implementationClass = 'com.rozaydin.migrateplugin.MigratePlugin'
+        }
+    }
+}
+
+pluginBundle {
+    website = '<substitute your project website>'
+    vcsUrl = '<uri to project source repository>'
+    tags = ['jks', 'pkcs12', 'java', 'keystore']
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = project.group
+            artifactId = 'plugins'
+            version = project.version
+            from components.java
+        }
+    }
+}
