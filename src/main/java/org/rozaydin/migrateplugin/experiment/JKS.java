@@ -105,9 +105,7 @@ import javax.crypto.spec.SecretKeySpec;
  * </li>
  * <li>Then, the signature.</li>
  * </ol>
- * </ol>
- * </li>
- * </ol>
+ *
  *
  * <p>(See <a href="genkey.java">this file</a> for some idea of how I
  * was able to figure out these algorithms)</p>

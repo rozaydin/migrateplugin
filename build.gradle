@@ -1,6 +1,7 @@
 plugins {
     id 'maven-publish'
     id 'java-gradle-plugin'
+    id 'com.gradle.plugin-publish' version '0.10.0'
 }
 
 group 'com.rozaydin.migrateplugin'
@@ -27,28 +28,28 @@ dependencies {
     testCompile "org.testng:testng:6.11"
 }
 
-gradlePlugin {
-    plugins {
-        migrate {
-            id = 'org.rozaydin.migrate'
-            displayName = 'Migrate Plugin'
-            description = 'Migrates JKS file(s) to PKCS12 format'
-            implementationClass = 'com.rozaydin.migrateplugin.MigratePlugin'
-        }
-    }
-}
-
 pluginBundle {
     website = 'https://github.com/rozaydin/migrateplugin'
     vcsUrl = 'https://github.com/rozaydin/migrateplugin'
     tags = ['jks', 'pkcs12', 'java', 'keystore']
 }
 
+gradlePlugin {
+    plugins {
+        migrateplugin {
+            id = 'org.rozaydin.migrate'
+            displayName = 'migrateplugin'
+            description = 'Migrates JKS file(s) to PKCS12 format'
+            implementationClass = 'org.rozaydin.migrateplugin.MigratePlugin'
+        }
+    }
+}
+
 publishing {
     publications {
         maven(MavenPublication) {
             groupId = project.group
-            artifactId = 'plugins'
+            artifactId = 'migrateplugin'
             version = project.version
             from components.java
         }
