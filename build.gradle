@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'com.rozaydin.migrateplugin'
-version '0.1'
+version '0.1.1'
 
 sourceCompatibility = 1.8
 
